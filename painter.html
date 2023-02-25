@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <title>Basic Java Script</title>
+<body>
+
+<h2>Painter entry Sai Prashanth Volete</h2>
+
+<form>
+    <label for="hiddenpainter">The hidden painter name </label>
+    <input type="password" value="Monet" id="hiddenpainter"><br>
+
+    <label for="guesspainter">Guess the painter </label>
+    <input type="text" id="guesspainter"> <br>
+     
+    <input type="button" onclick="checkPainter()" value="Check the guess">
+
+</form>
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+let good=0;
+let oops=0;
+function checkPainter(){
+     password = document.getElementById("hiddenpainter").value
+     guess = document.getElementById("guesspainter").value
+     if(password==guess)
+     {
+        good=good+1;
+        alert("You got it right");
+        document.getElementById("result").innerHTML=good;
+
+     }
+     else
+     {
+        oops=oops+1;
+        alert("Sorry");
+        document.getElementById("result").innerHTML=oops;
+     }
+}
+
+</script>
+
+</body>
+</html> 

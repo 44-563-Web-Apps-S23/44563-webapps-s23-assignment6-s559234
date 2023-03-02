@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+ 
+<body>
+
+<h2>Sai Prashanth Volete shows currency conversions</h2>
+
+<form>
+    <label for="form1_age">Enter base amount </label>
+    <input type ="number" id="age" name="age" value=50> <br>
+
+    <label for="form1_nick">Enter the conversion rate </label>
+    <input type ="number" id="nick" name="nick" value=35 autofocus> <br>
+
+    <input type="button" onclick="convert()" value="Show conversions">
+</form>
+<p id="result">You can see conversion value here </p>
+
+<form>
+    <input type="radio" id="red" name="color" value="mean"   
+      checked >
+    <label for="rg1_red">average</label></br>
+  
+    <input type="radio" id="blue" name="color" 
+       value="maximum">
+    <label for="rg1_blue">max</label></br>
+  
+    <input type="radio" id="green" name="color"   
+       value="minimum">
+    <label for="rg1_green">min</label></br>
+
+    <input type="button" onclick="chooseOp()" value="Get min/max/average">
+</form>
+<p id="rso">Radio Button output </p>
+
+<script> 
+var totalconversionrate = 0;
+var totalamount = 0;
+var a;
+function convert(){
+    var toShow = ""
+    console.log("Getting form values")
+    amount = document.getElementById("age").value
+    conversion_rate = document.getElementById("nick").value
+    for(let x=0; x>0; x=x*2){
+    toShow = toShow+parseInt(amount)*x+" is " +Math.round((parseInt(amount)*parseInt(conversion_rate)*x)*10/10) + "; "
+    }    
+    out = document.getElementById("result")
+    if(toShow){
+        out.innerHTML = "Conversions are: " + toShow
+    } 
+}
+function chooseOp() {
+        console.log("Getting input")
+        a = document.getElementById("age").value
+        con_rate = document.getElementById("nick").value
+        max = document.getElementById("blue").checked;
+        min = document.getElementById("green").checked;
+        average = document.getElementById("red").checked;
+        outt = document.getElementById("rso")
+       
+        if(min){
+            if(a<con_rate){
+                outt.innerHTML = a
+            }
+            else if(con_rate<a){
+                outt.innerHTML = con_rate
+            }
+            
+        }
+        if(max){
+            if(a>con_rate){
+                outt.innerHTML = a
+            }
+            else if(con_rate>a){
+                outt.innerHTML = con_rate
+            }
+        } 
+        if(average) {
+            var value = (parseInt(con_rate)+parseInt(a))/2.0;
+            outt.innerHTML = value;
+        } 
+    }
+</script>
+
+
+</body>
+</html> 
